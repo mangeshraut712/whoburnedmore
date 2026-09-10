@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Original whoburnedmore.com burn-orange dark theme */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.7 0.19 47.6);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.7 0.19 47.6 / 0.14);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 0.1);
+  --input: oklch(1 0 0 / 0.15);
+  --ring: oklch(0.7 0.19 47.6 / 0.72);
+  --burn: oklch(0.7 0.19 47.6);
+  --burn-dim: oklch(0.7 0.19 47.6 / 0.12);
+  --chart-1: oklch(0.7 0.19 47.6);
+  --chart-2: oklch(0.78 0.13 61);
+  --chart-3: oklch(0.86 0.08 78);
+  --chart-4: oklch(0.78 0 0);
+  --chart-5: oklch(0.58 0 0);
+  --sidebar: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.7 0.19 47.6);
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 0.1);
+  --sidebar-ring: oklch(0.7 0.19 47.6 / 0.72);
+  --landing-board-bg: oklch(0.205 0 0 / 0.25);
+  --landing-border: oklch(1 0 0 / 0.1);
+}
+
+.dark {
+  /* Tokens live on :root; html always carries class="dark". */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-burn: var(--burn);
+  --color-burn-dim: var(--burn-dim);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-heading: var(--font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    color-scheme: dark;
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    background: oklch(0.7 0.19 47.6 / 0.28);
+    color: oklch(0.985 0 0);
+  }
+}
+
+.tnum,
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.landing-ambient-glow {
+  background: radial-gradient(
+    60% 45% at 50% 0,
+    oklch(1 0 0 / 0.05),
+    transparent 70%
+  );
+}
+
+.glow-burn {
+  background: radial-gradient(
+    55% 40% at 18% 8%,
+    oklch(0.7 0.19 47.6 / 0.18),
+    transparent 70%
+  );
+}
+
+.bg-dots {
+  background-image: radial-gradient(oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.board-surface {
+  background: color-mix(in srgb, var(--landing-board-bg) 86%, transparent);
+  border: 1px solid var(--landing-border);
+  border-radius: 18px 0 0 18px;
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.05),
+    inset 0 -1px 0 0 oklch(1 0 0 / 0.05),
+    -20px 0 60px -48px var(--burn);
+}
+
+.npx-command {
+  background: oklch(0.205 0 0 / 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 0 1px oklch(0.7 0.19 47.6 / 0.12),
+    0 0 32px -12px oklch(0.7 0.19 47.6 / 0.45);
+}
+
+.wbm-logo-glow {
+  filter: drop-shadow(0 0 14px oklch(0.7 0.19 47.6 / 0.35));
+}
+
+.wbm-logo-glow-soft {
+  filter: drop-shadow(0 0 10px oklch(0.7 0.19 47.6 / 0.28));
+}
+
+.wbm-flame {
+  animation: wbm-flicker 2.4s ease-in-out infinite;
+  transform-origin: 32px 44px;
+}
+.wbm-ember {
+  animation: wbm-ember 1.8s ease-in-out infinite;
+  transform-origin: 32px 44px;
+}
+@keyframes wbm-flicker {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1) skewX(0deg);
+  }
+  20% {
+    transform: scaleY(1.05) scaleX(0.985) skewX(-1.6deg);
+  }
+  45% {
+    transform: scaleY(0.97) scaleX(1.012) skewX(1.1deg);
+  }
+  70% {
+    transform: scaleY(1.035) scaleX(0.992) skewX(-0.6deg);
+  }
+}
+@keyframes wbm-ember {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wbm-flame,
+  .wbm-ember {
+    animation: none;
+  }
+}
+
+.scrollbar-slim::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-slim::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 0.12);
+  border-radius: 999px;
+}
+.scrollbar-slim::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 0.2);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.wbm-panel {
+  background: color-mix(in srgb, oklch(0.205 0 0) 88%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.04);
+}
